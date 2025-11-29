@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google"
 import "./globals.css"
 import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
+import { HeroBgProvider } from "@/contexts/hero-bg-context"
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -30,8 +31,10 @@ export default function RootLayout({
           forcedTheme="dark"
           enableSystem={false}
         >
-          <Header />
-          {children}
+          <HeroBgProvider>
+            <Header />
+            {children}
+          </HeroBgProvider>
         </ThemeProvider>
       </body>
     </html>
